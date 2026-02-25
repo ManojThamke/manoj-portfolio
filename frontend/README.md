@@ -1,16 +1,60 @@
-# React + Vite
+# Manoj Thamke - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, highly interactive personal portfolio showcasing my journey as a Full-Stack MERN Developer and Machine Learning enthusiast. Designed with a clean, light-glassmorphic aesthetic and buttery-smooth scroll animations.
 
-Currently, two official plugins are available:
+![Portfolio Preview](./public/Profile-manoj.jpg) <!-- Update this with an actual screenshot of the portfolio later -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
+[**View Live on Vercel**](https://manoj-portfolio.vercel.app/) *(Update this link once your Vercel deployment finishes!)*
 
-## React Compiler
+## 🛠️ Tech Stack & Libraries
+This project was built with modern web technologies focusing on performance and elegant animations:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Framework:** [React 18](https://react.dev/) powered by [Vite](https://vitejs.dev/) for lightning-fast HMR and building.
+* **Styling:** [Tailwind CSS v3](https://tailwindcss.com/) for rapid utility-first styling and responsive design.
+* **Animations:** [Framer Motion](https://www.framer.com/motion/) used extensively for scroll-linked physics (e.g., the dynamic resume timeline), 3D tilt-cards, and staggered component reveals.
+* **Icons:** [React Icons](https://react-icons.github.io/react-icons/) for lightweight SVG scalable vector icons.
 
-## Expanding the ESLint configuration
+## ✨ Key Features
+* **Dynamic Hero Section:** Advanced Framer-Motion animated text reveals with an elegant profile frame and integrated social contact links.
+* **Animated Scroll Timeline:** A custom-built resume timeline where the central SVG path and individual capability nodes mathematically draw and illuminate themselves precisely as you scroll down the page.
+* **Interactive 3D Grid:** Built a custom 3D perspective tilt-card component for the "About Me" skills grid.
+* **Fully Responsive:** Beautifully gracefully collapses from a sweeping zig-zag desktop layout into a sleek mobile view.
+* **Vercel Ready:** Instantly deployable continuous integration setup.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💻 Running Locally
+
+To run this project on your local machine, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ManojThamke/manoj-portfolio.git
+   cd manoj-portfolio/frontend
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   *The application will start on `http://localhost:5173`.*
+
+4. **Build for Production:**
+   ```bash
+   npm run build
+   # To preview the build:
+   npm run preview
+   ```
+
+## 📫 Contact & Socials
+* **Email:** [manojthamke28@gmail.com](mailto:manojthamke28@gmail.com)
+* **LinkedIn:** [Manoj Thamke](https://www.linkedin.com/in/manoj-thamke/)
+* **GitHub:** [@ManojThamke](https://github.com/ManojThamke)
+* **Instagram:** [@thamke_manoj_28](https://www.instagram.com/thamke_manoj_28)
+
+---
+*Crafted with React & Framer Motion.*
