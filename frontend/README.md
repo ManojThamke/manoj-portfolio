@@ -2,7 +2,7 @@
 
 A modern, highly interactive personal portfolio showcasing my journey as a Full-Stack MERN Developer and Machine Learning enthusiast. Designed with a clean, light-glassmorphic aesthetic and buttery-smooth scroll animations.
 
-![Portfolio Preview](./public/Profile-manoj.jpg) <!-- Update this with an actual screenshot of the portfolio later -->
+![Portfolio Preview](./public/preview.jpeg) <!-- Update this with an actual screenshot of the portfolio later -->
 
 ## 🚀 Live Demo
 [**View Live on Vercel**](https://manoj-portfolio.vercel.app/) *(Update this link once your Vercel deployment finishes!)*
