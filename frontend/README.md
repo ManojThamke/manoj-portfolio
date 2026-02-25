@@ -5,7 +5,7 @@ A modern, highly interactive personal portfolio showcasing my journey as a Full-
 ![Portfolio Preview](./public/preview.jpeg) <!-- Update this with an actual screenshot of the portfolio later -->
 
 ## 🚀 Live Demo
-[**View Live on Vercel**](https://manoj-portfolio.vercel.app/) *(Update this link once your Vercel deployment finishes!)*
+[**View Live on Vercel**](https://manoj-portfolio-ecru.vercel.app/) *(Update this link once your Vercel deployment finishes!)*
 
 ## 🛠️ Tech Stack & Libraries
 This project was built with modern web technologies focusing on performance and elegant animations:
