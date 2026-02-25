@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    /* Changed from dark slate-950/slate-50 to light slate-50/slate-900 */
+    @apply bg-slate-50 text-slate-900 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-900 overflow-x-hidden;
+  }
+}
+
+/* Custom Scrollbar for Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
