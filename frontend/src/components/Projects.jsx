@@ -103,7 +103,7 @@ Scapy Packet Capture ➔ Flow-Based Feature Extraction ➔ Lightweight Model (St
         shadow: "shadow-blue-500/10",
         badge: "Machine Learning & Security",
         pattern: "radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 60%), linear-gradient(120deg, rgba(59, 130, 246, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%)",
-        github: "#",
+        github: "https://github.com/ManojThamke/ML_NIDS.git",
         demo: "#"
     },
     {
@@ -269,6 +269,18 @@ const Projects = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
+    // Prevent scrolling when modal is open
+    React.useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [selectedProject]);
+
     return (
         <section id="projects" ref={containerRef} className="py-32 px-6 relative z-10 bg-slate-50/50 perspective-1000">
             {/* SVG Scroll Drawing Progress Line in the background */}
@@ -326,7 +338,7 @@ const Projects = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xl"
+                        className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xl"
                         onClick={() => setSelectedProject(null)}
                     >
                         <motion.div
