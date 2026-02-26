@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projectsData = [
     {
@@ -100,7 +101,10 @@ Scapy Packet Capture ➔ Flow-Based Feature Extraction ➔ Lightweight Model (St
         highlights: ["9 ML models", "16M+ Records", "Level 1 & Level 2 Ensemble", "Two-Stage Hybrid", "Scapy Sniffing", "MERN Dashboard"],
         color: "from-blue-500 to-indigo-600",
         shadow: "shadow-blue-500/10",
-        badge: "Machine Learning & Security"
+        badge: "Machine Learning & Security",
+        pattern: "radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 60%), linear-gradient(120deg, rgba(59, 130, 246, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%)",
+        github: "#",
+        demo: "#"
     },
     {
         title: "NotesChain – Decentralized Academic Social Network",
@@ -110,7 +114,10 @@ Scapy Packet Capture ➔ Flow-Based Feature Extraction ➔ Lightweight Model (St
         highlights: ["Smart contract-based logic", "Decentralized storage using IPFS", "Tokenized incentive model", "Web3 wallet integration", "Fully decentralized architecture"],
         color: "from-purple-500 to-pink-600",
         shadow: "shadow-purple-500/10",
-        badge: "Blockchain"
+        badge: "Blockchain",
+        pattern: "linear-gradient(45deg, rgba(168, 85, 247, 0.05) 25%, transparent 25%, transparent 75%, rgba(168, 85, 247, 0.05) 75%, rgba(168, 85, 247, 0.05)), linear-gradient(45deg, rgba(168, 85, 247, 0.05) 25%, transparent 25%, transparent 75%, rgba(168, 85, 247, 0.05) 75%, rgba(168, 85, 247, 0.05))",
+        github: "#",
+        demo: "#"
     },
     {
         title: "Bug Tracker / Issue Tracking System",
@@ -120,7 +127,10 @@ Scapy Packet Capture ➔ Flow-Based Feature Extraction ➔ Lightweight Model (St
         highlights: ["RESTful API integration", "JWT authentication", "Project & issue management", "Clean dashboard interface"],
         color: "from-emerald-500 to-teal-600",
         shadow: "shadow-emerald-500/10",
-        badge: "Full Stack"
+        badge: "Full Stack",
+        pattern: "repeating-linear-gradient(45deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.05) 10px, transparent 10px, transparent 20px)",
+        github: "#",
+        demo: "#"
     },
     {
         title: "Airbnb Clone – Challenge Project",
@@ -130,7 +140,10 @@ Scapy Packet Capture ➔ Flow-Based Feature Extraction ➔ Lightweight Model (St
         highlights: ["Server-side rendering using EJS", "CRUD operations", "Authentication & session management", "RESTful routing structure", "MongoDB data modeling"],
         color: "from-orange-500 to-red-600",
         shadow: "shadow-orange-500/10",
-        badge: "Backend Focus"
+        badge: "Backend Focus",
+        pattern: "radial-gradient(circle, rgba(249, 115, 22, 0.05) 2px, transparent 2px)",
+        github: "#",
+        demo: "#"
     }
 ];
 
@@ -167,50 +180,71 @@ const ProjectCard = ({ project, index, onClick }) => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: index * 0.1, type: "spring", bounce: 0.3 }}
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-            className={`group flex flex-col h-full bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 relative overflow-hidden transition-shadow duration-500 shadow-xl hover:shadow-2xl ${project.shadow}`}
+            className={`group flex flex-col h-full bg-white border border-slate-200 rounded-[2.5rem] relative overflow-hidden transition-shadow duration-500 shadow-xl hover:shadow-2xl ${project.shadow}`}
         >
             {/* Dynamic Glossy Light Effect */}
             <motion.div
-                className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+                className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
                 style={{
                     background: useTransform(
-                        () => `radial-gradient(1000px circle at ${(x.get() + 0.5) * 100}% ${(y.get() + 0.5) * 100}%, rgba(255,255,255,0.6), transparent 40%)`
+                        () => `radial-gradient(1000px circle at ${(x.get() + 0.5) * 100}% ${(y.get() + 0.5) * 100}%, rgba(255,255,255,0.8), transparent 40%)`
                     )
                 }}
             />
 
-            <div style={{ transform: "translateZ(30px)" }} className="flex flex-wrap gap-4 justify-between items-start mb-8 relative z-10">
-                <span className={`px-4 py-1.5 rounded-xl text-xs sm:text-sm font-bold tracking-widest uppercase bg-gradient-to-r ${project.color} text-white shadow-md`}>
-                    {project.badge}
-                </span>
-                <span className="text-4xl font-black text-slate-100 font-mono leading-none select-none tracking-tighter mix-blend-multiply">
-                    0{index + 1}
-                </span>
+            {/* Visual Thumbnail Area */}
+            <div className="h-48 md:h-56 w-full relative overflow-hidden border-b border-slate-100 shrink-0">
+                <div className="absolute inset-0 bg-slate-50 transition-transform duration-700 group-hover:scale-105" style={{ background: project.pattern, backgroundSize: '20px 20px' }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
+
+                <div style={{ transform: "translateZ(30px)" }} className="absolute bottom-6 left-8 right-8 flex justify-between items-end z-10">
+                    <span className={`px-4 py-1.5 rounded-xl text-xs sm:text-sm font-black tracking-widest uppercase bg-gradient-to-r ${project.color} text-white shadow-xl shadow-${project.color.split('-')[1]}-500/20`}>
+                        {project.badge}
+                    </span>
+                    <span className="text-5xl font-black text-slate-200 font-mono leading-none select-none tracking-tighter mix-blend-multiply drop-shadow-sm">
+                        0{index + 1}
+                    </span>
+                </div>
             </div>
 
-            <h3 style={{ transform: "translateZ(40px)" }} className="text-2xl md:text-3xl font-black mb-4 text-slate-800 relative z-10 line-clamp-2">
-                {project.title}
-            </h3>
+            {/* Content Area */}
+            <div className="p-8 md:p-10 flex flex-col flex-grow relative z-10">
 
-            <div style={{ transform: "translateZ(20px)" }} className="flex flex-wrap mb-6 relative z-10">
-                <p className="text-sm font-bold tracking-wide text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg border border-indigo-100 font-mono">
-                    {project.techStack}
-                </p>
-            </div>
 
-            <div style={{ transform: "translateZ(10px)" }} className="space-y-4 mb-10 flex-grow relative z-10">
-                <p className="text-slate-600 text-[15px] md:text-base leading-relaxed font-medium">
-                    {project.shortDescription}
-                </p>
-            </div>
+                <h3 style={{ transform: "translateZ(40px)" }} className="text-2xl md:text-3xl font-black mb-4 text-slate-800 relative z-10 line-clamp-2">
+                    {project.title}
+                </h3>
 
-            <div style={{ transform: "translateZ(50px)" }} className="mt-auto pt-6 border-t border-slate-100 relative z-10 flex justify-between items-center w-full">
-                <button
-                    onClick={() => onClick(project)}
-                    className="w-full px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-transform hover:scale-[1.02] shadow-md relative overflow-hidden group/btn"
-                >
-                    <span className="relative z-10 flex justify-center items-center gap-2">Explore Details <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span></span>
-                </button>
+                <div style={{ transform: "translateZ(20px)" }} className="flex flex-wrap mb-6 relative z-10">
+                    <p className="text-sm font-bold tracking-wide text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg border border-indigo-100 font-mono">
+                        {project.techStack}
+                    </p>
+                </div>
+
+                <div style={{ transform: "translateZ(10px)" }} className="space-y-4 mb-10 flex-grow relative z-10">
+                    <p className="text-slate-600 text-[15px] md:text-base leading-relaxed font-medium">
+                        {project.shortDescription}
+                    </p>
+                </div>
+
+                <div style={{ transform: "translateZ(50px)" }} className="mt-auto pt-6 border-t border-slate-100 relative z-10 flex gap-3 items-center w-full">
+                    <button
+                        onClick={() => onClick(project)}
+                        className="flex-grow px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-transform hover:scale-[1.02] shadow-md relative overflow-hidden group/btn"
+                    >
+                        <span className="relative z-10 flex justify-center items-center gap-2">Explore Details <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>→</motion.span></span>
+                    </button>
+                    {project.github && (
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-all shadow-sm hover:scale-105" title="View Source">
+                            <FaGithub className="text-lg" />
+                        </a>
+                    )}
+                    {project.demo && (
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-3.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-all shadow-sm hover:scale-105" title="Live Demo">
+                            <FaExternalLinkAlt className="text-lg" />
+                        </a>
+                    )}
+                </div>
             </div>
         </motion.div>
     );
@@ -285,89 +319,137 @@ const Projects = () => {
                 </div>
             </div>
 
-            {/* Project Detail Modal */}
+            {/* Fancy Project Detail Modal */}
             <AnimatePresence>
                 {selectedProject && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-slate-900/40 backdrop-blur-md"
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-xl"
                         onClick={() => setSelectedProject(null)}
                     >
                         <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 50, rotateX: 20 }}
-                            animate={{ scale: 1, opacity: 1, y: 0, rotateX: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 50, rotateX: -20 }}
-                            transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+                            initial={{ scale: 0.95, opacity: 0, y: 30 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 30 }}
+                            transition={{ type: "spring", bounce: 0, duration: 0.6 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-white w-full max-w-4xl max-h-[90vh] rounded-[2rem] shadow-2xl overflow-hidden flex flex-col border border-slate-200"
+                            className="bg-white/95 backdrop-blur-3xl w-full max-w-7xl max-h-[95vh] h-[90vh] rounded-[2.5rem] shadow-[0_0_80px_rgba(0,0,0,0.2)] overflow-hidden flex flex-col md:flex-row border border-white"
                         >
-                            {/* Modal Header */}
-                            <div className={`p-6 md:p-8 bg-gradient-to-r ${selectedProject.color} text-white flex justify-between items-start shrink-0 relative overflow-hidden`}>
-                                <motion.div
-                                    className="absolute inset-0 bg-white/10"
-                                    animate={{ x: ["-100%", "200%"] }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                />
-                                <div className="relative z-10">
-                                    <span className="px-3 py-1 rounded-lg bg-white/20 text-xs font-bold uppercase tracking-widest mb-3 inline-block backdrop-blur-md border border-white/20">
-                                        {selectedProject.badge}
-                                    </span>
-                                    <h3 className="text-2xl md:text-3xl font-black leading-tight drop-shadow-md">
+                            {/* Left Sticky Sidebar (Visual & Summary) */}
+                            <div className={`md:w-2/5 p-8 md:p-12 bg-gradient-to-br ${selectedProject.color} text-white flex flex-col relative overflow-y-auto shrink-0`} style={{ scrollbarWidth: 'none' }}>
+                                {/* Animated Ambient Backgrounds */}
+                                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.15] mix-blend-overlay pointer-events-none"></div>
+                                <motion.div animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} className="absolute -top-32 -left-32 w-96 h-96 bg-white/20 rounded-full blur-[80px] pointer-events-none"></motion.div>
+                                <motion.div animate={{ scale: [1, 1.5, 1], rotate: [0, -90, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute -bottom-32 -right-32 w-96 h-96 bg-black/20 rounded-full blur-[80px] pointer-events-none"></motion.div>
+
+                                <div className="relative z-10 flex-grow flex flex-col">
+                                    <div className="flex justify-between items-start mb-8">
+                                        <span className="px-5 py-2 rounded-full bg-white/20 text-xs font-black uppercase tracking-widest backdrop-blur-md border border-white/30 shadow-xl">
+                                            {selectedProject.badge}
+                                        </span>
+                                        {/* Mobile Close Button */}
+                                        <button onClick={() => setSelectedProject(null)} className="md:hidden p-3 rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors backdrop-blur-md border border-white/10">
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
+                                        </button>
+                                    </div>
+
+                                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight drop-shadow-xl mb-6 tracking-tight">
                                         {selectedProject.title}
                                     </h3>
-                                    <p className="font-mono text-white/90 mt-2 text-sm drop-shadow-sm">{selectedProject.techStack}</p>
+
+                                    <p className="font-mono text-white/90 text-sm md:text-base drop-shadow-md leading-relaxed mb-auto border-l-4 border-cyan-300 pl-5 py-1">
+                                        {selectedProject.techStack}
+                                    </p>
+
+                                    <div className="mt-10 hidden md:flex flex-col flex-grow justify-end">
+                                        <div className="mb-10">
+                                            <h4 className="text-white/60 text-xs font-black uppercase tracking-widest mb-4">Key Capabilities</h4>
+                                            <div className="flex flex-col gap-3">
+                                                {selectedProject.highlights.map((highlight, i) => (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }}
+                                                        key={i} className="flex items-center gap-4 bg-white/10 rounded-2xl p-4 border border-white/20 backdrop-blur-md shadow-lg"
+                                                    >
+                                                        <div className="w-3 h-3 rounded-full bg-cyan-300 shadow-[0_0_15px_rgba(103,232,249,0.8)] animate-pulse"></div>
+                                                        <span className="text-sm font-bold tracking-wide">{highlight}</span>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Project Links / Action Buttons */}
+                                        <div className="flex gap-4">
+                                            {selectedProject.github && (
+                                                <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-4 rounded-xl bg-white text-slate-900 font-bold hover:scale-105 transition-transform shadow-xl">
+                                                    <FaGithub className="text-xl" /> Code
+                                                </a>
+                                            )}
+                                            {selectedProject.demo && (
+                                                <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-4 rounded-xl bg-black/20 border border-white/20 text-white font-bold hover:bg-black/40 hover:scale-105 transition-all shadow-xl backdrop-blur-md">
+                                                    <FaExternalLinkAlt className="text-lg" /> Live Demo
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
-                                <button
-                                    onClick={() => setSelectedProject(null)}
-                                    className="p-2 rounded-full bg-black/10 hover:bg-black/20 text-white transition-colors backdrop-blur-md relative z-10"
-                                >
-                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button>
                             </div>
 
-                            {/* Modal Body - Scrollable */}
-                            <div className="p-6 md:p-8 overflow-y-auto relative" style={{ scrollbarWidth: 'thin' }}>
-                                <div className="prose prose-slate max-w-none prose-headings:font-black prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:text-indigo-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600 prose-strong:text-slate-900 prose-hr:border-slate-200">
+                            {/* Right Scrollable Content area */}
+                            <div className="p-8 md:p-14 overflow-y-auto relative w-full md:w-3/5 bg-white" style={{ scrollbarWidth: 'thin' }}>
+                                {/* Desktop Close Button */}
+                                <button onClick={() => setSelectedProject(null)} className="hidden md:flex absolute top-8 right-8 p-3 w-12 h-12 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-colors items-center justify-center border border-slate-200 shadow-sm z-50">
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+
+                                <div className="prose prose-slate max-w-none prose-headings:font-black prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-transparent prose-h2:bg-clip-text prose-h2:bg-gradient-to-r prose-h2:from-slate-800 prose-h2:to-slate-500 prose-p:text-slate-600 prose-p:leading-loose prose-p:text-lg md:prose-p:text-xl prose-li:text-slate-600 prose-li:text-lg md:prose-li:text-xl prose-strong:text-slate-900 prose-hr:border-slate-100 prose-hr:my-10">
                                     {selectedProject.fullDescription.split('\n').map((line, i) => {
-                                        if (line.startsWith('## ')) return <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} key={i}>{line.replace('## ', '')}</motion.h2>;
-                                        if (line.startsWith('# ')) return <motion.h1 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} key={i} className="text-3xl font-black text-slate-900 mb-6">{line.replace('# ', '')}</motion.h1>;
-                                        if (line.startsWith('---')) return <hr key={i} className="my-8" />;
+                                        if (line.startsWith('## ')) return <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} key={i}>{line.replace('## ', '')}</motion.h2>;
+                                        if (line.startsWith('# ')) return <motion.h1 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} key={i} className="text-4xl font-black text-slate-900 mb-8">{line.replace('# ', '')}</motion.h1>;
+                                        if (line.startsWith('---')) return <hr key={i} className="my-10 border-t-2 border-slate-100" />;
                                         if (line.startsWith('* **')) {
                                             const parts = line.split('**');
                                             if (parts.length >= 3) {
-                                                return <motion.li initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} key={i} className="mb-2 list-disc ml-5 w-full block"><strong>{parts[1]}</strong>{parts.slice(2).join('**')}</motion.li>;
+                                                return <motion.li initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} key={i} className="mb-3 list-disc ml-6 marker:text-cyan-500"><strong>{parts[1]}</strong>{parts.slice(2).join('**')}</motion.li>;
                                             }
                                         }
-                                        if (line.startsWith('* ')) return <motion.li initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} key={i} className="mb-2 list-disc ml-5">{line.replace('* ', '')}</motion.li>;
+                                        if (line.startsWith('* ')) return <motion.li initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} key={i} className="mb-3 list-disc ml-6 marker:text-cyan-500">{line.replace('* ', '')}</motion.li>;
                                         if (line.trim() === '') return <div key={i} className="h-4"></div>;
 
                                         if (line.includes('**')) {
                                             const parts = line.split('**');
-                                            return <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} key={i}>
-                                                {parts.map((part, index) => index % 2 === 1 ? <strong key={index}>{part}</strong> : part)}
+                                            return <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} key={i} className="mb-6">
+                                                {parts.map((part, index) => index % 2 === 1 ? <strong key={index} className="px-1.5 py-0.5 bg-slate-100 rounded text-slate-800">{part}</strong> : part)}
                                             </motion.p>
                                         }
 
-                                        return <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} key={i}>{line}</motion.p>;
+                                        return <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} key={i} className="mb-6">{line}</motion.p>;
                                     })}
                                 </div>
 
-                                <div className="mt-12 pt-8 border-t border-slate-200">
-                                    <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Key Highlights</h4>
-                                    <div className="flex flex-wrap gap-2.5">
+                                {/* Mobile Highlights Footer (Hidden on Desktop) */}
+                                <div className="mt-12 pt-8 border-t border-slate-200 md:hidden">
+                                    <div className="flex gap-4 mb-8">
+                                        {selectedProject.github && (
+                                            <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-4 rounded-xl bg-slate-900 text-white font-bold transition-transform shadow-md">
+                                                <FaGithub className="text-xl" /> Code
+                                            </a>
+                                        )}
+                                        {selectedProject.demo && (
+                                            <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-4 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-700 font-bold transition-all shadow-sm">
+                                                <FaExternalLinkAlt className="text-lg" /> Live Demo
+                                            </a>
+                                        )}
+                                    </div>
+
+                                    <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">Key Highlights</h4>
+                                    <div className="flex flex-col gap-3">
                                         {selectedProject.highlights.map((highlight, i) => (
-                                            <motion.span
-                                                initial={{ opacity: 0, scale: 0.5 }}
-                                                whileInView={{ opacity: 1, scale: 1 }}
-                                                viewport={{ once: true }}
-                                                transition={{ delay: i * 0.05 }}
-                                                key={i}
-                                                className="px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-bold text-slate-700 shadow-sm"
-                                            >
+                                            <div key={i} className="px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm font-bold text-slate-700 shadow-sm flex items-center gap-3">
+                                                <div className="w-2 h-2 rounded-full bg-cyan-500"></div>
                                                 {highlight}
-                                            </motion.span>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
