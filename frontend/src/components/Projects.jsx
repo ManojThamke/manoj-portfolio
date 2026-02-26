@@ -273,16 +273,19 @@ const Projects = () => {
     React.useEffect(() => {
         if (selectedProject) {
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         }
         return () => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         };
     }, [selectedProject]);
 
     return (
-        <section id="projects" ref={containerRef} className="py-32 px-6 relative z-10 bg-slate-50/50 perspective-1000">
+        <section id="projects" ref={containerRef} className={`py-32 px-6 relative bg-slate-50/50 perspective-1000 ${selectedProject ? 'z-[99999]' : 'z-10'}`}>
             {/* SVG Scroll Drawing Progress Line in the background */}
             <div className="absolute left-[5%] md:left-[10%] top-0 bottom-0 w-1 pointer-events-none hidden lg:block opacity-30">
                 <svg className="w-full h-full" viewBox="0 0 10 100" preserveAspectRatio="none">
