@@ -118,7 +118,7 @@ const Hero = () => {
                         </span>
                     </motion.div>
 
-                    <motion.h1 className="text-6xl md:text-8xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-none relative z-10">
+                    <motion.h1 className="text-5xl md:text-8xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-none relative z-10">
                         <AnimatedText text="Hi, I'm" /> <br className="md:hidden" />
                         <motion.span
                             variants={itemVariants}
@@ -126,7 +126,7 @@ const Hero = () => {
                             whileHover={{ scale: 1.05, rotateZ: -2 }}
                             transition={{ type: "spring", stiffness: 300, damping: 10 }}
                         >
-                            <span className="absolute -inset-4 bg-gradient-to-r from-cyan-300 via-indigo-300 to-purple-300 blur-2xl opacity-60 mix-blend-multiply animate-pulse"></span>
+                            <span className="absolute -inset-4 bg-gradient-to-r from-cyan-300 via-indigo-300 to-purple-300 blur-xl md:blur-2xl opacity-40 md:opacity-60 mix-blend-normal md:mix-blend-multiply md:animate-pulse hidden sm:block"></span>
                             <span className="relative bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 drop-shadow-sm">
                                 Manoj.
                             </span>
@@ -182,8 +182,8 @@ const Hero = () => {
                     transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
                     className="relative flex-1 flex justify-center lg:justify-end w-full max-w-md lg:max-w-xl mx-auto"
                 >
-                    {/* Decorative Background Blob */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-cyan-400/20 rounded-[40%] blur-3xl animate-pulse" />
+                    {/* Decorative Background Blob - Scaled down for mobile */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-cyan-400/20 rounded-[40%] blur-2xl md:blur-3xl md:animate-pulse" />
 
                     {/* Main Image Container */}
                     <motion.div

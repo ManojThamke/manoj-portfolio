@@ -16,7 +16,7 @@ const TiltCard = ({ item, index }) => {
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
     const handleMouseMove = (e) => {
-        if (!ref.current) return;
+        if (!ref.current || window.innerWidth < 768) return;
         const rect = ref.current.getBoundingClientRect();
         const width = rect.width;
         const height = rect.height;

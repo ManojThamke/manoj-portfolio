@@ -9,11 +9,11 @@ import Resume from './components/Resume';
 function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-cyan-500/30">
-      {/* Light Theme Animated Background using CSS Animations */}
+      {/* Light Theme Animated Background using CSS Animations - Optimized for Mobile */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center bg-white/50">
-        <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-indigo-200/50 rounded-full blur-[100px] animate-pulse pointer-events-none mix-blend-multiply" style={{ animationDuration: '8s' }}></div>
-        <div className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-cyan-200/40 rounded-full blur-[120px] animate-pulse pointer-events-none mix-blend-multiply" style={{ animationDuration: '12s', animationDelay: '2s' }}></div>
-        <div className="absolute top-[40%] left-[60%] w-[400px] h-[400px] bg-purple-200/40 rounded-full blur-[100px] animate-pulse pointer-events-none mix-blend-multiply" style={{ animationDuration: '10s', animationDelay: '4s' }}></div>
+        <div className="absolute top-[10%] left-[20%] w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-indigo-200/40 md:bg-indigo-200/50 rounded-full blur-3xl md:blur-[100px] animate-pulse pointer-events-none mix-blend-normal md:mix-blend-multiply" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-[10%] right-[10%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-cyan-200/30 md:bg-cyan-200/40 rounded-full blur-3xl md:blur-[120px] animate-pulse pointer-events-none mix-blend-normal md:mix-blend-multiply" style={{ animationDuration: '12s', animationDelay: '2s' }}></div>
+        <div className="hidden md:block absolute top-[40%] left-[60%] w-[400px] h-[400px] bg-purple-200/40 rounded-full blur-[100px] animate-pulse pointer-events-none mix-blend-multiply" style={{ animationDuration: '10s', animationDelay: '4s' }}></div>
         {/* Subtle noise for texture, lowered opacity for light theme */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
       </div>
