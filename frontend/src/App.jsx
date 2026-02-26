@@ -3,6 +3,7 @@ import { FaPhone } from 'react-icons/fa';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 
@@ -23,6 +24,7 @@ function App() {
         <main className="flex-grow">
           <Hero />
           <About />
+          <Skills />
           <Projects />
           <Resume />
         </main>
